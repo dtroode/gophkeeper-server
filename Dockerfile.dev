@@ -1,0 +1,28 @@
+FROM golang:1.24-alpine
+
+# Устанавливаем air для live reloading
+RUN go install github.com/air-verse/air@v1.62.0
+
+WORKDIR /app
+
+# Копируем api модуль (зависимость)
+COPY api /app/api
+
+# Копируем auth модуль (зависимость)
+COPY auth /app/auth
+
+# Копируем server модуль
+COPY server /app/server
+
+WORKDIR /app/server
+
+# Скачиваем зависимости
+RUN go mod download
+
+# Создаем директорию для бинарников air
+RUN mkdir -p tmp
+
+EXPOSE 50051
+
+# Запускаем air для live reloading
+CMD ["air", "-c", ".air.toml"]
