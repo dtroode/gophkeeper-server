@@ -1,0 +1,18 @@
+version: 2
+issue-845-fix: true
+packages:
+  github.com/dtroode/gophkeeper-server/internal/model:
+    config:
+      dir: ./internal/mocks
+      outpkg: mocks
+    all: true
+  github.com/dtroode/gophkeeper-server/internal/api/grpc/middleware:
+    config:
+      dir: ./internal/mocks
+      outpkg: mocks
+    all: true
+  github.com/dtroode/gophkeeper-server/internal/api/grpc/handler:
+    config:
+      dir: ./internal/mocks
+      outpkg: mocks
+    all: true

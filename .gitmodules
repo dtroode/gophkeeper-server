@@ -1,3 +1,0 @@
-[submodule "pkg/api"]
-	path = pkg/api
-	url = https://github.com/dtroode/gophkeeper-api
